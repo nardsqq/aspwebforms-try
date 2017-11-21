@@ -11,7 +11,18 @@ namespace ASPMVCWebForm_CRUD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+        }
 
+        protected void BtnCreate_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.InsertParameters["Name"].DefaultValue = 
+                ((TextBox)GridView1.FooterRow.FindControl("txtName")).Text;
+
+            SqlDataSource1.InsertParameters["Position"].DefaultValue =
+                ((TextBox)GridView1.FooterRow.FindControl("txtPosition")).Text;
+
+            SqlDataSource1.Insert();
         }
     }
 }
